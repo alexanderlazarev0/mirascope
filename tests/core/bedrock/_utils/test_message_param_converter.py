@@ -201,16 +201,16 @@ def test_tool_use_with_text():
     }
     results = BedrockMessageParamConverter.from_provider([message_param])  # pyright: ignore [reportArgumentType]
     assert results == [
-        BaseMessageParam(role="user", content=[TextPart(type="text", text="Hello")]),
         BaseMessageParam(
-            role="assistant",
+            role="user",
             content=[
+                TextPart(type="text", text="Hello"),
                 ToolCallPart(
                     type="tool_call",
                     name="tool_name",
                     args={"arg": "val"},
                     id="tool_id",
-                )
+                ),
             ],
         ),
     ]
