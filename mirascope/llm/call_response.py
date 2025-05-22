@@ -145,11 +145,7 @@ class CallResponse(
 
         def _get_tool_call_id(_tool: BaseTool) -> str | None:
             """Get the tool call ID."""
-            if tool_call := getattr(_tool, "tool_call", None):
-                # Expect tool_call has an id attribute.
-                # If not, we should implement a method to get the id on the provider tool
-                return getattr(tool_call, "id", None)
-            return None
+            return getattr(_tool, "id", None)
 
         return [
             BaseMessageParam(

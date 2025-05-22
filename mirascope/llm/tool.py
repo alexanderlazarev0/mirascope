@@ -52,6 +52,7 @@ class Tool(BaseTool, metaclass=_DelegateAbstractMethodsForTool):
             "__pydantic_extra__",
             "__pydantic_private__",
             "__class_getitem__",
+            "id",
         }
 
         if name in special_names:

@@ -214,8 +214,14 @@ def test_tool_message_params_various_tool_call_ids_with_annotations():
 
         field1: str = "tool_field"
 
-    mock_tool = MagicMock(spec=BaseTool)
-    mock_tool._name.return_value = "tool_name"
+    class MockTool(BaseTool):
+        def call(self, *args: Any, **kwargs: Any) -> Any: ...
+
+        @classmethod
+        def _name(cls) -> str:
+            return "tool_name"
+
+    mock_tool = MockTool()
     tool_with_id = ToolWithID(mock_tool)
     tool_no_call = ToolNoCall(mock_tool)
     tool_call_no_id = ToolCallNoID(mock_tool)
