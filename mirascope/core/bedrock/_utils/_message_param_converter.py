@@ -139,7 +139,6 @@ class BedrockMessageParamConverter(BaseMessageParamConverter):
                                 ToolResultPart(
                                     type="tool_result",
                                     id=tool_result["toolUseId"],
-                                    name=tool_result["name"],  # pyright: ignore [reportGeneralTypeIssues]
                                     content=tool_result["content"]
                                     if isinstance(tool_result["content"], str)
                                     else tool_result["content"][0]["text"],  # pyright: ignore [reportTypedDictNotRequiredAccess]

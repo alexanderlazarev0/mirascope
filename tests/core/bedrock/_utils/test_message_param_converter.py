@@ -163,7 +163,6 @@ def test_tool_result():
                 "toolResult": {
                     "toolUseId": "tool_123",
                     "content": [{"text": "result"}],
-                    "name": "tool_123",
                 }
             }
         ],
@@ -175,7 +174,6 @@ def test_tool_result():
             content=[
                 ToolResultPart(
                     type="tool_result",
-                    name="tool_123",
                     content="result",
                     id="tool_123",
                     is_error=False,
@@ -225,7 +223,6 @@ def test_tool_result_with_text():
                 "toolResult": {
                     "toolUseId": "tool_id",
                     "content": [{"text": "result"}],
-                    "name": "tool_name",
                 }
             },
         ],
@@ -238,7 +235,6 @@ def test_tool_result_with_text():
             content=[
                 ToolResultPart(
                     type="tool_result",
-                    name="tool_name",
                     content="result",
                     id="tool_id",
                     is_error=False,
