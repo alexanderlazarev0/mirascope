@@ -36,6 +36,10 @@ class Tool(BaseTool, metaclass=_DelegateAbstractMethodsForTool):
 
     _tool: BaseTool
 
+    @property
+    def id(self) -> str | None:
+        return self._tool.id
+
     def __init__(self, tool: BaseTool) -> None:
         super().__init__(**{field: getattr(tool, field) for field in tool.model_fields})
         object.__setattr__(self, "_tool", tool)

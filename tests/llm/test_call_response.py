@@ -189,6 +189,10 @@ def test_tool_message_params_various_tool_call_ids_with_annotations():
     class ToolWithID(Tool):
         tool_call: ClassVar[Any] = ToolCallWithID()
 
+        @property
+        def id(self) -> str | None:
+            return self.tool_call.id
+
         def call(self): ...
         @property
         def model_fields(self): ...  # pyright: ignore [reportIncompatibleVariableOverride]
